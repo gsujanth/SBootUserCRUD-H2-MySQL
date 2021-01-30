@@ -14,20 +14,19 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-
-    public User getUser(String str){
+    public User getUser(String str) {
         return userRepository.findByLastName(str);
     }
 
-    public void addUser(User user ){
+    public void addUser(User user) {
         userRepository.save(user);
     }
 
-    public List<User> getUsers(){
+    public List<User> getUsers() {
         return userRepository.findAll();
     }
 
-    public void updateUser(long userId,User user){
+    public void updateUser(long userId, User user) {
         User userToUpdate = userRepository.getOne(userId);
         userToUpdate.setId(user.getId());
         userToUpdate.setFirstName(user.getFirstName());
@@ -35,7 +34,7 @@ public class UserService {
         userRepository.save(userToUpdate);
     }
 
-    public void deleteUser(long userId){
+    public void deleteUser(long userId) {
         userRepository.deleteById(userId);
     }
 }
