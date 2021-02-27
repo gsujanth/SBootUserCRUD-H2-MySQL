@@ -5,6 +5,7 @@ import com.training.SpringBootDemo.Hello.Controller.UserController;
 import com.training.SpringBootDemo.Hello.Service.UserService;
 import com.training.SpringBootDemo.Hello.model.User;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -36,12 +37,14 @@ public class WebLayerTest {
     @InjectMocks
     UserController userController;
 
+    @Ignore
     @Test
     public void shouldReturnDefaultMessage() throws Exception {
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("Hello World")));
     }
 
+    @Ignore
     @Test
     public void testGreeting(){
 

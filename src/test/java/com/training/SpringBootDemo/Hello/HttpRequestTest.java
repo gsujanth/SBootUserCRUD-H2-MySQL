@@ -1,5 +1,6 @@
 package com.training.SpringBootDemo.Hello;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -22,6 +23,7 @@ public class HttpRequestTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    @Ignore
     @Test
     public void greetingShouldReturnDefaultMessage() throws Exception {
         assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/hello/hi",

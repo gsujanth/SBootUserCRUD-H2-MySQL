@@ -4,6 +4,7 @@ import com.training.SpringBootDemo.Hello.Controller.HelloController;
 import com.training.SpringBootDemo.Hello.Controller.UserController;
 import com.training.SpringBootDemo.Hello.Service.UserService;
 import com.training.SpringBootDemo.Hello.model.User;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,7 @@ public class UserControllerWLTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @Ignore
     @Test
     public void shouldReturnDefaultMessage() throws Exception {
         this.mockMvc.perform(get("/json/user")).andExpect(status().isOk()).
