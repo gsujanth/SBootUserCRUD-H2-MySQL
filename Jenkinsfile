@@ -25,5 +25,11 @@ timeout(time: 15, unit: 'MINUTES') {
                 to: 'flyhighbaby21@gmail.com',
                 attachLog: true
         }
+        stage('Email Notification'){
+            mail bcc: '', body: '''Build successful!!!!
+            Thanks,
+            STONKS''',
+            cc: '', from: '', replyTo: '', subject: 'Build successfull', to: 'flyhighbaby21@gmail.com'
+        }
     }
 }
