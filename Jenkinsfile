@@ -22,7 +22,7 @@ timeout(time: 15, unit: 'MINUTES') {
             echo 'Notifying Build Report'
             emailext body: 'Test Message',
                 subject: 'Test Subject',
-                to: 'test@example.com',
+                to: 'flyhighbaby21@gmail.com',
                 attachLog: true
         }
     }
