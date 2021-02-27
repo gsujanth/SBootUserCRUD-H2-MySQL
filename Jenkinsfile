@@ -13,7 +13,7 @@ timeout(time: 15, unit: 'MINUTES') {
         }
         stage('Build') {
             echo 'Starting gradle build'
-            sh './gradle clean build'
+            sh './gradlew clean build'
         }
     }
 }
