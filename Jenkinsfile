@@ -18,5 +18,12 @@ timeout(time: 15, unit: 'MINUTES') {
             echo 'Starting gradle build'
             sh './gradlew clean build'
         }
+        stage('Notify') {
+            echo 'Notifying Build Report'
+            emailext body: 'Test Message',
+                subject: 'Test Subject',
+                to: 'test@example.com',
+                attachLog: true
+        }
     }
 }
