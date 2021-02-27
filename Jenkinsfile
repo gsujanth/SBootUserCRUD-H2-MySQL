@@ -1,8 +1,5 @@
 def nodeLabel = ''
 timeout(time: 15, unit: 'MINUTES') {
-    options {
-        skipDefaultCheckout()
-    }
     node(nodeLabel) {
         stage('Clean Workspace') {
             cleanWs()
