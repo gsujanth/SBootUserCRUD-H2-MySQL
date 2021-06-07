@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("/json")
@@ -24,8 +25,8 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public List<User> getUsers(){
-        return userService.getUsers();
+    public List<User> getUsers() throws ExecutionException, InterruptedException {
+        return userService.getUsers().get();
     }
 
     @PostMapping(path = "/user/add")
@@ -41,6 +42,11 @@ public class UserController {
     @DeleteMapping(path = "/user/delete/{userId}")
     public void deleteUser(@PathVariable long userId) {
         userService.deleteUser(userId);
+    }
+
+    @GetMapping("/future/{value}")
+    public Object getValueFromCompletedFuture(@PathVariable Object value) throws ExecutionException, InterruptedException {
+        return userService.returnCompletedFutureWithGivenValue(value).get();
     }
 
 }
