@@ -1,8 +1,8 @@
-package com.training.SpringBootDemo.Hello;
+package com.training.springbootdemo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.training.SpringBootDemo.Hello.Controller.HelloController;
+import com.training.springbootdemo.controller.HelloController;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;

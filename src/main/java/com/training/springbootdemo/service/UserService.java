@@ -1,7 +1,7 @@
-package com.training.SpringBootDemo.Hello.Service;
+package com.training.springbootdemo.service;
 
-import com.training.SpringBootDemo.Hello.Repository.UserRepository;
-import com.training.SpringBootDemo.Hello.model.User;
+import com.training.springbootdemo.repository.UserRepository;
+import com.training.springbootdemo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;

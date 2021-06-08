@@ -1,4 +1,4 @@
-package com.training.SpringBootDemo.Hello;
+package com.training.springbootdemo;
 
 import org.junit.Ignore;
 import org.junit.Test;

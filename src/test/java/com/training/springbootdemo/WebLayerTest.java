@@ -1,9 +1,8 @@
-package com.training.SpringBootDemo.Hello;
+package com.training.springbootdemo;
 
-import com.training.SpringBootDemo.Hello.Controller.HelloController;
-import com.training.SpringBootDemo.Hello.Controller.UserController;
-import com.training.SpringBootDemo.Hello.Service.UserService;
-import com.training.SpringBootDemo.Hello.model.User;
+import com.training.springbootdemo.service.UserService;
+import com.training.springbootdemo.controller.UserController;
+import com.training.springbootdemo.model.User;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -32,7 +31,7 @@ public class WebLayerTest {
     private MockMvc mockMvc;
 
       @Mock
-    UserService userServiceMock;
+      UserService userServiceMock;
 
     @InjectMocks
     UserController userController;

@@ -1,7 +1,7 @@
-package com.training.SpringBootDemo.Hello.Controller;
+package com.training.springbootdemo.controller;
 
-import com.training.SpringBootDemo.Hello.Service.UserService;
-import com.training.SpringBootDemo.Hello.model.User;
+import com.training.springbootdemo.service.UserService;
+import com.training.springbootdemo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
