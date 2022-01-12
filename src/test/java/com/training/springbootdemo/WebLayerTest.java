@@ -3,15 +3,11 @@ package com.training.springbootdemo;
 import com.training.springbootdemo.service.UserService;
 import com.training.springbootdemo.controller.UserController;
 import com.training.springbootdemo.model.User;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
@@ -19,61 +15,32 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(SpringRunner.class)
-@WebMvcTest(UserController.class)
+@SpringBootTest
 public class WebLayerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-      @Mock
-      UserService userServiceMock;
+    @Mock
+    UserService userServiceMock;
 
     @InjectMocks
     UserController userController;
 
-    @Ignore
     @Test
     public void shouldReturnDefaultMessage() throws Exception {
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("Hello World")));
     }
 
-    @Ignore
     @Test
     public void testGreeting(){
 
         when(userServiceMock.getUser("Guntupalli")).thenReturn(new User(123,"Sujanth","Guntupalli"));
-        Assert.assertEquals(new User(123,"Sujanth","Guntupalli"),userServiceMock.getUser("Guntupalli"));
+        assertThat(new User(123,"Sujanth","Guntupalli")).isEqualTo(userServiceMock.getUser("Guntupalli"));
 
     }
-
-//    @Mock
-//    DataService dataServiceMock;
-//
-//    @InjectMocks
-//    SomeBusinessImpl businessImpl;
-//
-//    @Test
-//    public void testFindTheGreatestFromAllData() {
-//        when(dataServiceMock.retrieveAllData()).thenReturn(new int[] { 24, 15, 3 });
-//        assertEquals(24, businessImpl.findTheGreatestFromAllData());
-//    }
-//
-//    @Test
-//    public void testFindTheGreatestFromAllData_ForOneValue() {
-//        when(dataServiceMock.retrieveAllData()).thenReturn(new int[] { 15 });
-//        assertEquals(15, businessImpl.findTheGreatestFromAllData());
-//    }
-//
-//    @Test
-//    public void testFindTheGreatestFromAllData_NoValues() {
-//        when(dataServiceMock.retrieveAllData()).thenReturn(new int[] {});
-//        assertEquals(Integer.MIN_VALUE, businessImpl.findTheGreatestFromAllData());
-//    }
-//}
 }
