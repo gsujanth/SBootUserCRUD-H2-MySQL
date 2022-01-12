@@ -1,12 +1,11 @@
 package com.training.springbootdemo.service;
 
-import com.training.springbootdemo.repository.UserRepository;
 import com.training.springbootdemo.model.User;
+import com.training.springbootdemo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
