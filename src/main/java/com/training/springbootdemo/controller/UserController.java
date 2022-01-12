@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping("/json")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -19,27 +19,27 @@ public class UserController {
 
     }
 
-    @GetMapping("/user")
-    public User getUser(){
+    @GetMapping("/default")
+    public User getDefaultUser(){
         return userService.getUser("Guntupalli");
     }
 
-    @GetMapping("/users")
-    public List<User> getUsers() throws ExecutionException, InterruptedException {
+    @GetMapping("/all")
+    public List<User> getAllUsers() throws ExecutionException, InterruptedException {
         return userService.getUsers().get();
     }
 
-    @PostMapping(path = "/user/add")
-    public void addUser(Long id, @RequestBody User user) {
+    @PostMapping(path = "/add")
+    public void addUser(Long id, @RequestBody User user, @RequestHeader String source) {
         userService.addUser(user);
     }
 
-    @PutMapping(path = "/user/update/{userId}")
+    @PutMapping(path = "/update/{userId}")
     public void updateUser(@PathVariable long userId, @RequestBody User user) {
         userService.updateUser(userId,user);
     }
 
-    @DeleteMapping(path = "/user/delete/{userId}")
+    @DeleteMapping(path = "/delete/{userId}")
     public void deleteUser(@PathVariable long userId) {
         userService.deleteUser(userId);
     }
