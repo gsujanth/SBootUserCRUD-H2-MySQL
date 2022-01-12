@@ -1,4 +1,4 @@
-package com.training.springbootdemo;
+package com.training.springbootdemo.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class UserCrudApplicationTests {
+public class HelloControllerTest {
 
 	@Autowired
-	private HelloController controller;
+	private HelloController helloController;
 
 	@Test
 	public void contextLoads()throws Exception{
-		assertThat(controller).isNotNull();
+		assertThat(helloController).isNotNull();
 	}
 
 }
