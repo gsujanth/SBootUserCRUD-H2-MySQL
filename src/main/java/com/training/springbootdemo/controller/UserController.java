@@ -2,12 +2,14 @@ package com.training.springbootdemo.controller;
 
 import com.training.springbootdemo.model.User;
 import com.training.springbootdemo.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -36,7 +38,11 @@ public class UserController {
 
     @PutMapping(path = "/update/{userId}")
     public void updateUser(@PathVariable long userId, @RequestBody User user) {
-        userService.updateUser(userId,user);
+        try {
+            userService.updateUser(userId, user);
+        } catch(Exception e){
+            log.error("Exception in updateUser() - {}", e.getMessage());
+        }
     }
 
     @DeleteMapping(path = "/delete/{userId}")
