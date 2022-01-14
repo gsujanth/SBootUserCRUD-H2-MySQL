@@ -31,7 +31,7 @@ public class UserService {
     }
 
     public void updateUser(long userId, User user) {
-        User userToUpdate = userRepository.getOne(userId);
+        User userToUpdate = userRepository.getById(userId);
         userToUpdate.setId(user.getId());
         userToUpdate.setFirstName(user.getFirstName());
         userToUpdate.setLastName(user.getLastName());

@@ -14,10 +14,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override
+    /*@Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/h2-console/**");
-    }
+        web.ignoring()
+                .antMatchers("/h2-console/**");
+    }*/
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -27,13 +28,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/h2-console/**").permitAll()
-                .antMatchers(HttpMethod.GET, "health").permitAll()
+                .antMatchers(HttpMethod.GET, "/health").permitAll()
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(getAuthenticationFilter(),
                         UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling().authenticationEntryPoint(new UserCrudAuthenticationEntryPoint());
+
+        http.headers().frameOptions().sameOrigin();
+        //http.headers().frameOptions().disable(); //not secure
     }
 
     @Bean
