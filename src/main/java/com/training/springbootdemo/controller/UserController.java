@@ -11,7 +11,7 @@ import java.util.concurrent.ExecutionException;
 
 @Slf4j
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -26,17 +26,17 @@ public class UserController {
         return userService.getUser("Guntupalli");
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public List<User> getAllUsers() throws ExecutionException, InterruptedException {
         return userService.getUsers().get();
     }
 
-    @PostMapping(path = "/add")
+    @PostMapping
     public void addUser(Long id, @RequestBody User user, @RequestHeader String source) {
         userService.addUser(user);
     }
 
-    @PutMapping(path = "/update/{userId}")
+    @PutMapping(path = "/{userId}")
     public void updateUser(@PathVariable long userId, @RequestBody User user) {
         try {
             userService.updateUser(userId, user);
@@ -45,7 +45,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping(path = "/delete/{userId}")
+    @DeleteMapping(path = "/{userId}")
     public void deleteUser(@PathVariable long userId) {
         userService.deleteUser(userId);
     }
