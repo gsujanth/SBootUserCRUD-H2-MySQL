@@ -1,6 +1,6 @@
-package com.training.SpringBootDemo.Hello.Repository;
+package com.training.springbootdemo.repository;
 
-import com.training.SpringBootDemo.Hello.model.User;
+import com.training.springbootdemo.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,1 +1,0 @@
-insert into user values(123,'Sujanth','Guntupalli');
