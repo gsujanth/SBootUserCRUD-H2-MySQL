@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AdvancedUserRepository extends JpaRepository<AdvancedUser, Long> {
+public interface AdvancedUserJpaRepository extends JpaRepository<AdvancedUser, Long> {
 
     AdvancedUser findByLastName(String lastName);
 }

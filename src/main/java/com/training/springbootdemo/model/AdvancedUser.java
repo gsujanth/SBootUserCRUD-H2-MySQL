@@ -41,25 +41,25 @@ public class AdvancedUser {
     @AssertTrue(message = "Working should be true")
     private boolean working;
 
-    @Positive(message = "Age should be positive")  //@Negative
+    @Positive(message = "Age must be positive")  //@Negative
     @Min(value = 18, message = "Age should not be less than 18")
     @Max(value = 100, message = "Age should not be greater than 100")
     private int age;
 
-    @PositiveOrZero(message = "Work Experience can be 0 or more years") //@NegativeOrZero
+    @PositiveOrZero(message = "Work Experience must be 0 or more years") //@NegativeOrZero
     private int workExperience;
 
-    @PastOrPresent(message = "Last working day can be today or before") //@FutureOrPresent
+    @PastOrPresent(message = "Last working day must be today or before") //@FutureOrPresent
     private Date lastDayAtWork;
 
-    @Past(message = "DOB will be in past") //@Future
+    @Past(message = "DOB must be in past") //@Future
     private LocalDate dob;
-
-    //private List<@NotBlank String> preferences;
-
-    /*public Optional<@Past LocalDate> getDob2() {
-        return Optional.of(dob);
-    }*/
 }
 
 //@Valid on Controller method params kicks off these validating annotations
+
+//private List<@NotBlank String> preferences;
+
+/*public Optional<@Past LocalDate> getDob2() {
+    return Optional.of(dob);
+}*/
